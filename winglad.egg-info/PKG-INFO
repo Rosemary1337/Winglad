@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: winglad
+Version: 0.1.0
+Summary: A virtual controller server for Linux
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+Requires-Dist: python-uinput
+Requires-Dist: qrcode
+Requires-Dist: netifaces
+
+# Winglad - Virtual Controller Server
+
+Winglad is a virtual controller server application that allows you to use your smartphone or other web-enabled devices as a gamepad, keyboard, or mouse on Linux systems. It leverages `uinput` to simulate hardware input and provides a modern web interface with multi-touch and gyroscope support.
+
+## Key Features
+
+- **Xbox 360 Gamepad Emulation**: Simulates a full Xbox 360 controller (A/B/X/Y, D-Pad, Joysticks, Triggers).
+- **Flexible Modes**:
+  - **GAMEPAD**: Standard gamepad input.
+  - **WASD**: Maps the left joystick to keyboard W, A, S, D keys (ideal for FPS games).
+  - **ARROW**: Maps the left joystick to keyboard arrow keys.
+- **Gyroscope Support**: Use your smartphone's motion sensors to control mouse movement or camera.
+- **Easy Connection**: Displays a **QR Code** in the terminal for quick connection via local network.
+- **Responsive Web Interface**: Optimized touch-based UI for mobile browser access.
+- **Multi-Touch**: Supports simultaneous button presses and joystick movements.
+
+## Installation
+
+Winglad can be installed locally using `pip`:
+
+```bash
+pip install .
+```
+
+## Permissions Setup (Linux)
+
+For the best experience, run the setup tool once to configure permissions permanently:
+
+```bash
+winglad-setup
+```
+
+This will:
+1. Load the `uinput` kernel module.
+2. Configure `udev` rules to allow running Winglad without `sudo` in the future.
+3. Add your user to the `input` group.
+
+## How to Run
+
+Start the server using:
+
+```bash
+winglad
+```
+
+**Note:** If the `uinput` module is not loaded, `winglad` will attempt to load it automatically (which may prompt for your `sudo` password).
+
+After starting:
+1. The terminal will show a **QR Code** and the local URL (e.g., `http://192.168.1.5:8080`).
+2. Scan the QR code with your smartphone or open the URL in your browser.
+3. Start using your device as a controller!
+
+## Project Structure
+
+- `pyproject.toml`: Package configuration and dependencies.
+- `winglad/`: Core package directory.
+  - `main.py`: Entry point (Web Server & WebSocket).
+  - `controller.py`: Virtual controller logic using `uinput`.
+  - `static/`: Frontend assets (HTML, CSS, JS).
+  - `99-ctrl-controller.rules`: Udev rules for permissions.
+
+## Troubleshooting
+
+- **"uinput module not loaded"**: The application should try to fix this automatically. If it persists, run `winglad-setup` or `sudo modprobe uinput`.
+- **"No write access to /dev/uinput"**: Run `winglad-setup` to fix permissions.
+- **"Command not found"**: Ensure your Python scripts directory (e.g., `~/.local/bin`) is in your `PATH`.
+
+
+---
+Developed for effortless gaming using mobile devices as additional controllers.

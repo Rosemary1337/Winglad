@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+winglad/99-ctrl-controller.rules
+winglad/__init__.py
+winglad/controller.py
+winglad/main.py
+winglad.egg-info/PKG-INFO
+winglad.egg-info/SOURCES.txt
+winglad.egg-info/dependency_links.txt
+winglad.egg-info/entry_points.txt
+winglad.egg-info/requires.txt
+winglad.egg-info/top_level.txt
+winglad/static/client.js
+winglad/static/index.html
+winglad/static/rotate.gif
+winglad/static/style.css

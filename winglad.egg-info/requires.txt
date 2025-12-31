@@ -1,0 +1,4 @@
+aiohttp
+python-uinput
+qrcode
+netifaces
