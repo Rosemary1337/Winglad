@@ -1,4 +1,15 @@
-# Winglad - Virtual Controller Server
+<p align="center">
+  <img src="img/winglad-sm.png" alt="Winglad Logo" width="150" />
+</p>
+
+<h1 align="center">Winglad - Virtual Controller Server</h1>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version">
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+    <img src="https://img.shields.io/badge/version-0.1.0-orange.svg" alt="Version">
+    <img src="https://img.shields.io/badge/category-Utility-purple.svg" alt="Category">
+</p>
 
 Winglad is a powerful virtual controller server that transforms your smartphone or web-enabled device into a fully customizable gamepad, keyboard, and mouse for Linux. Built with `uinput`, it offers low-latency hardware simulation with a modern, touch-optimized interface.
 
@@ -80,3 +91,7 @@ winglad
 - **"uinput module not loaded"**: Run `winglad-setup` or `sudo modprobe uinput`.
 - **"No write access to /dev/uinput"**: Run `winglad-setup` and restart your session.
 - **Gyro/Steering not working**: Ensure you are accessing via **HTTPS** if not on localhost (browser security restriction), or use a browser that allows sensor access on HTTP (like some Android developer browsers). Since this runs on a local network, HTTP is standard, but some modern mobile browsers are strict about sensors.
+
+## Contributing
+
+Pull requests are open to everyone! If you have ideas for improvements, bug fixes, or new features, feel free to fork the repository and submit a pull request.
