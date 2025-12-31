@@ -1,0 +1,10 @@
+# Allow access to uinput (for creating devices)
+KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess", MODE="0666"
+
+# Allow access to the Virtual Xbox 360 Controller created by our script
+# Vendor 045e = Microsoft, Product 028e = Xbox 360
+SUBSYSTEM=="input", ATTRS{name}=="Microsoft X-Box 360 pad", MODE="0666", ENV{ID_INPUT_JOYSTICK}="1"
+SUBSYSTEM=="input", ATTRS{vendor}=="045e", ATTRS{product}=="028e", MODE="0666", ENV{ID_INPUT_JOYSTICK}="1"
+
+# General fallback for event devices (optional, but finding specific device can be tricky)
+# KERNEL=="event*", MODE="0666"
