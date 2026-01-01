@@ -264,6 +264,39 @@ document.getElementById('show-debug-check').onchange = (e) => {
     saveLayout();
 };
 
+document.getElementById('fullscreen-check').onchange = (e) => {
+    if (e.target.checked) {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+};
+
+document.addEventListener('fullscreenchange', () => {
+    document.getElementById('fullscreen-check').checked = !!document.fullscreenElement;
+});
+document.addEventListener('webkitfullscreenchange', () => {
+    document.getElementById('fullscreen-check').checked = !!document.webkitFullscreenElement;
+});
+document.addEventListener('mozfullscreenchange', () => {
+    document.getElementById('fullscreen-check').checked = !!document.mozFullScreenElement;
+});
+document.addEventListener('MSFullscreenChange', () => {
+    document.getElementById('fullscreen-check').checked = !!document.msFullscreenElement;
+});
+
 document.getElementById('gyro-sensitivity-input').oninput = (e) => {
     gyroSensitivity = parseInt(e.target.value);
 };
