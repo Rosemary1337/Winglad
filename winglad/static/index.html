@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Linux Web Controller</title>
+    <title>Winglad Controller</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
+    <div id="ui-logo-container">
+        <img src="static/winglad-sm.png" id="ui-logo" alt="Winglad"">
+    </div>
     <div id="container">
         <div id="gyro-debug"
             style="position: absolute; top: 10px; left: 10px; color: yellow; font-family: monospace; font-size: 12px; pointer-events: none; z-index: 9999; display: none;">
@@ -80,6 +83,17 @@
                         <div class="range-wrapper">
                             <input type="range" id="joystick-size-input" min="50" max="200" value="100">
                         </div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3>System</h3>
+                    <div class="setting-row">
+                        <label>Fullscreen</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="fullscreen-check">
+                            <span class="slider"></span>
+                        </label>
                     </div>
                 </div>
 
